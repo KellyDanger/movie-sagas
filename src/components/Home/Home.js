@@ -14,9 +14,14 @@ class Home extends Component {
     }) 
   }
 
+  handleClick = (event) => {
+    console.log('clicked', event.target.alt);
+    this.props.history.push(`/details/:${event.target.alt}`)
+  }
+
   render() {
     return(
-      <div id="posterContainer">
+      <div id="posterContainer" onClick={this.handleClick}>
         {this.props.reduxState.movies.map((movie) => {
         return <MovieItem key={movie.title} poster={movie.poster} title={movie.title}/>
       })}

@@ -3,6 +3,8 @@ import{HashRouter as Router, Route, Link} from 'react-router-dom';
 import Home from '../Home/Home';
 import Details from '../Details/Details';
 import AddMovie from '../AddMovie/AddMovie';
+
+import { connect } from 'react-redux';
 import './App.css';
 
 class App extends Component {
@@ -21,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);

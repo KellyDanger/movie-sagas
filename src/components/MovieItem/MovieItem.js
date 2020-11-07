@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 class MovieItem extends Component {
+
+
   render(){
-    console.log(this.props);
-    
     return(
       <div>
         <img src={this.props.poster} alt={this.props.title}/>
