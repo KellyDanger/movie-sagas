@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MovieItem from '../MovieItem/MovieItem';
 
 class Home extends Component {
+  componentDidMount = () => {
+    this.listMovies();
+  }
+
+  listMovies = () => {
+    console.log('These are the movies');
+    this.props.dispatch({
+      type: 'FETCH_MOVIES'
+    }) 
+  }
+
   render() {
     return(
-      <p>Home</p>
+      <div id="posterContainer">
+        {this.props.reduxState.movies.map((movie) => {
+        return <MovieItem key={movie.title} poster={movie.poster}/>
+      })}
+      </div>
+      
     )
   }
 }
