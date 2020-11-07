@@ -18,7 +18,7 @@ class Home extends Component {
     return(
       <div id="posterContainer">
         {this.props.reduxState.movies.map((movie) => {
-        return <MovieItem key={movie.title} poster={movie.poster}/>
+        return <MovieItem key={movie.title} poster={movie.poster} title={movie.title}/>
       })}
       </div>
       
