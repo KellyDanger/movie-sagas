@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import{HashRouter as Router, Route, Link} from 'react-router-dom';
+import Home from '../Home/Home';
+import Details from '../Details/Details';
 import './App.css';
 
 class App extends Component {
@@ -9,9 +11,9 @@ class App extends Component {
       <div className="App">
         <h1>Movies!</h1>
         <Router>
-          {/* ADD PAGES! */}
+          <Route exact path="/" component={Home}/>
+          <Route path="/details" component={Details}/>
         </Router>
-        <p>Empty Page</p>
       </div>
     );
   }
