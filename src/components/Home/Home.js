@@ -16,6 +16,10 @@ class Home extends Component {
 
   handleClick = (event) => {
     console.log('clicked', event.target.alt);
+    this.props.dispatch({
+      type: 'FETCH_DETAILS',
+      payload: event.target.alt
+    })
     this.props.history.push(`/details/:${event.target.alt}`)
   }
 

@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
 
-  
+
   render() {
     return(
-      <p>Details</p>
+      <>
+      {JSON.stringify(this.props.reduxState.details)}
+      </>
     )
   }
 }
