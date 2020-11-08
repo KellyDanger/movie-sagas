@@ -10,12 +10,13 @@ class AddMovie extends Component {
       genre_id: 0,
     }
   }
+  //on page load, fetch all movie genres from DB and populate dropdown menu 
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_GENRES'
     })  
   }
-
+  //set local state of new movie to userinput data by key(param) type
   handleChangeFor = (event, param) => {
       this.setState({
       newMovie: {
@@ -24,9 +25,8 @@ class AddMovie extends Component {
       }
     })
   }
-
-  //need to get a list of genres from /api/genre to redux store to populate the genre dropdown. 
-
+  
+  //dispatch ADD MOVIE action with local state as payload
   addMovie = () => {
     this.props.dispatch({
       type: 'ADD_MOVIE',
@@ -46,6 +46,7 @@ class AddMovie extends Component {
         <input placeholder="posterURL" type="text" onChange={(event)=>this.handleChangeFor(event, 'poster')}/>
         <input placeholder="description" type="text" onChange={(event)=>this.handleChangeFor(event, 'description')}/>
         <select onChange={(event) => this.handleChangeFor(event, 'genre_id')}>
+          {/* map through genre array from DB to dynamically populate genre options */}
           {this.props.reduxState.genres[0] && this.props.reduxState.genres.map((genre) => {
            return(
             <option key={genre.id} value={genre.id}>{genre.name}</option>

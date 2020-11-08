@@ -3,7 +3,7 @@
   color: white;
 }
 body {
-  background-color: black;
+  background-color: #0b0e29;
 }
 
 .App-header {
@@ -33,6 +33,7 @@ h2 {
 
 .backBtn {
   margin-bottom: 150px;
+  background-color: white;
 }
 ul {
   list-style-type: none;
@@ -61,11 +62,16 @@ input, select {
   width: 20%;
   margin-left: 40%;
 }
+select {
+  margin-bottom: 20px;
+}
 button {
   font-size: 16px;
   margin: 5px;
   padding-left: 30px;
   padding-right: 30px;
+  border-radius: 5px;
+  background-color: white;
 }
 
 

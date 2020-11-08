@@ -19,17 +19,16 @@ function* rootSaga() {
     yield takeEvery('FETCH_GENRES', fetchGenres)
     yield takeEvery('ADD_MOVIE', addMovie)
 }
-
+//add movie SAGA sends post request to movie router and updates home page movie list
 function* addMovie(action) {
     try {
         yield axios.post(`api/movie`, action.payload);
         yield put({type: 'FETCH_MOVIES'});
-        // yield put({type: 'FETCH_DETAILS'});
     }catch(error) {
         console.log('ERROR IN POST');
     }
 }
-
+//fetchGenres SAGA gets genres from DB to populate add movie dropdown
 function* fetchGenres() {
     try {
         const genresResponse = yield axios.get('/api/genre')
@@ -38,16 +37,13 @@ function* fetchGenres() {
         console.log('ERROR in FETCH');  
     }
 }
-
+//fetchMovies SAGA gets all movies from the DB and sets the movie reducer state to those movies
 function* fetchMovies() {
     try{
         const moviesResponse = yield axios.get('/api/movie')
-        yield put({type: 'SET_MOVIES', payload: moviesResponse.data})
-        yield console.log('MOVIE RESPONSE DATA', moviesResponse.data);
-        
+        yield put({type: 'SET_MOVIES', payload: moviesResponse.data})      
     }catch(error) {
-        console.log('Error in FETCH');
-        
+        console.log('Error in FETCH');  
     }
 }
 //send axios request to movierouter with the movie's id as a payload
@@ -55,19 +51,17 @@ function* fetchMovies() {
 function* fetchDetails(action){
     try{
         const detailsResponse = yield axios.get(`/api/movie/${action.payload}`)
-        yield put({type: 'SET_DETAILS', payload: detailsResponse.data})
-        yield console.log('DETAILS RESPONSE DATA', detailsResponse.data);
-        
+        yield put({type: 'SET_DETAILS', payload: detailsResponse.data})    
     }catch(error) {
         console.log('Error in FETCH DETAILS');
         
     }
 }
 
-
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
+//details reducer stores detailed information for a specific movie
 const details = (state = [], action) => {    
     switch (action.type) {
         case 'SET_DETAILS':
@@ -76,7 +70,6 @@ const details = (state = [], action) => {
             return state;
     }
 }
-
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
     switch (action.type) {
@@ -86,7 +79,6 @@ const movies = (state = [], action) => {
             return state;
     }
 }
-
 // Used to store the movie genres
 const genres = (state = [], action) => {
     switch (action.type) {
@@ -96,7 +88,6 @@ const genres = (state = [], action) => {
             return state;
     }
 }
-
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({

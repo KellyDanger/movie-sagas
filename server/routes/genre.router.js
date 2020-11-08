@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+//retrieve all genre_ids from DB to populate dropdown menu
 router.get('/', (req, res) => {
   const queryText = `SELECT * FROM "genres" ORDER BY "id"`;
   pool.query(queryText)
