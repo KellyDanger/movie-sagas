@@ -27,7 +27,10 @@ class AddMovie extends Component {
   //need to get a list of genres from /api/genre to redux store to populate the genre dropdown. 
 
   addMovie = () => {
-    console.log('Adding Movie', this.state);
+    this.props.dispatch({
+      type: 'ADD_MOVIE',
+      payload: this.state.newMovie
+    })
 
   }
 
