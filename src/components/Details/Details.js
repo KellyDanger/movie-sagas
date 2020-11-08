@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MovieItem from '../MovieItem/MovieItem';
+
 
 class Details extends Component {
   

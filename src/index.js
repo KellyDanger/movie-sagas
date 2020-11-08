@@ -33,6 +33,8 @@ function* fetchDetails(action){
     try{
         const detailsResponse = yield axios.get(`/api/movie/${action.payload}`)
         yield put({type: 'SET_DETAILS', payload: detailsResponse.data})
+        yield console.log('DETAILS RESPONSE DATA', detailsResponse.data);
+        
     }
     catch(error) {
         console.log('Error in FETCH DETAILS');

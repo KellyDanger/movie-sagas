@@ -7,7 +7,7 @@ class MovieItem extends Component {
   render(){
     return(
       <div>
-        <img src={this.props.poster} alt={this.props.title}/>
+        <img src={this.props.poster} alt={this.props.title} id={this.props.id}/>
         <h2>{this.props.title}</h2>
       </div>
     )
