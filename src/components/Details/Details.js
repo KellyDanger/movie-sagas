@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 
 class Details extends Component {
-  
+  handleClick = () => {
+    this.props.history.push('/');
+  }
 
   render() {
     
@@ -17,8 +19,9 @@ class Details extends Component {
       </>
       }
       {this.props.reduxState.details.map((movie) => {
-        return <p>{movie.name}</p>
+        return <p key={movie.name}>{movie.name}</p>
       })}
+      <button onClick={this.handleClick}>Back To Movies</button>
       </div>
     )
   }
