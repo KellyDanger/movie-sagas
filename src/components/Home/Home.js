@@ -28,7 +28,7 @@ class Home extends Component {
       //consumes MovieItem to display it on the DOM
       <div id="posterContainer" onClick={this.handleClick}>
         {this.props.reduxState.movies.map((movie) => {
-        return <MovieItem key={movie.title} poster={movie.poster} title={movie.title} id={movie.id}/>
+        return <MovieItem key={movie.id} poster={movie.poster} title={movie.title} id={movie.id}/>
       })}
       </div>
       

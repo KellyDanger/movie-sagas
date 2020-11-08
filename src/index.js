@@ -23,10 +23,9 @@ function* rootSaga() {
 function* addMovie(action) {
     try {
         yield axios.post(`api/movie`, action.payload);
-    }
-    catch(error) {
+        yield put({type: 'FETCH_MOVIES'});
+    }catch(error) {
         console.log('ERROR IN POST');
-        
     }
 }
 
@@ -34,10 +33,8 @@ function* fetchGenres() {
     try {
         const genresResponse = yield axios.get('/api/genre')
         yield put({type: 'SET_GENRES', payload: genresResponse.data});
-    }
-    catch(error) {
-        console.log('ERROR in FETCH');
-        
+    }catch(error) {
+        console.log('ERROR in FETCH');  
     }
 }
 function* fetchMovies() {
@@ -46,8 +43,7 @@ function* fetchMovies() {
         yield put({type: 'SET_MOVIES', payload: moviesResponse.data})
         yield console.log('MOVIE RESPONSE DATA', moviesResponse.data);
         
-    }
-    catch(error) {
+    }catch(error) {
         console.log('Error in FETCH');
         
     }
@@ -60,8 +56,7 @@ function* fetchDetails(action){
         yield put({type: 'SET_DETAILS', payload: detailsResponse.data})
         yield console.log('DETAILS RESPONSE DATA', detailsResponse.data);
         
-    }
-    catch(error) {
+    }catch(error) {
         console.log('Error in FETCH DETAILS');
         
     }

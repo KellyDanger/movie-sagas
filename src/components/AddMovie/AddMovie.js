@@ -15,6 +15,7 @@ class AddMovie extends Component {
       type: 'FETCH_GENRES'
     })  
   }
+
   handleChangeFor = (event, param) => {
     this.setState({
       newMovie: {
@@ -31,9 +32,12 @@ class AddMovie extends Component {
       type: 'ADD_MOVIE',
       payload: this.state.newMovie
     })
-
+    this.props.history.push('/');
   }
-
+  //cancel button returns user to home page
+  handleClick = () => {
+    this.props.history.push('/');
+  }
 
   render() {
     return(
@@ -50,6 +54,7 @@ class AddMovie extends Component {
           
         </select>
         <button onClick={this.addMovie}>Submit</button>
+        <button onClick={this.handleClick} className="backBtn">Cancel</button>
       </div>
       
     )

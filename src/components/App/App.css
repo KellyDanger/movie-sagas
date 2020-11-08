@@ -1,7 +1,10 @@
 .App {
   text-align: center;
+  color: white;
 }
-
+body {
+  background-color: black;
+}
 
 .App-header {
   background-color: #222;
@@ -23,7 +26,17 @@
   to { transform: rotate(360deg); }
 }
 h2 {
-  color: black;
+  color: white;
   margin-top: 5px;
   margin-bottom: 30px;
 }
+.moviePoster {
+  height: 250px;
+  border: 1px solid white;
+  
+}
+.backBtn {
+  margin-bottom: 100px;
+}
+
+

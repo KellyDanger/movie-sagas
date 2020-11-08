@@ -16,7 +16,7 @@ class Details extends Component {
       {this.props.reduxState.details[0] && 
       <>
       <h1>{this.props.reduxState.details[0].title}</h1>
-      <img src={this.props.reduxState.details[0].poster} alt={this.props.reduxState.title}/>
+      <img className="moviePoster" src={this.props.reduxState.details[0].poster} alt={this.props.reduxState.title}/>
       <h3>{this.props.reduxState.details[0].description}</h3>
       </>
       }
@@ -24,7 +24,7 @@ class Details extends Component {
       {this.props.reduxState.details.map((movie) => {
         return <p key={movie.name}>{movie.name}</p>
       })}
-      <button onClick={this.handleClick}>Back To Movies</button>
+      <button onClick={this.handleClick} className="backBtn">Back To Movies</button>
       </div>
     )
   }
