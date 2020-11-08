@@ -7,7 +7,8 @@ class Details extends Component {
   render() {
     return(
       <>
-      {JSON.stringify(this.props.reduxState.details)}
+      {JSON.stringify(this.props.reduxState.details.title)}
+      
       </>
     )
   }

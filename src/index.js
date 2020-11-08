@@ -30,7 +30,7 @@ function* fetchMovies() {
 function* fetchDetails(action){
     try{
         const detailsResponse = yield axios.get(`/api/movie/${action.payload}`)
-        yield put({type: 'SET_DETAILS', payload: detailsResponse.data})
+        yield put({type: 'SET_DETAILS', payload: detailsResponse.data[0]})
     }
     catch(error) {
         console.log('Error in FETCH DETAILS');
@@ -42,7 +42,7 @@ function* fetchDetails(action){
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-const details = (state = '', action) => {
+const details = (state = '', action) => {    
     switch (action.type) {
         case 'SET_DETAILS':
             return action.payload;
