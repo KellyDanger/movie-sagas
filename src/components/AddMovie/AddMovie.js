@@ -3,24 +3,49 @@ import { connect } from 'react-redux';
 
 class AddMovie extends Component {
   state = {
-    title: '',
-    poster: '',
-    description: '',
-    genre: ''
+    newMovie: {
+      title: '',
+      poster: '',
+      description: '',
+      genre: ''
+    }
   }
-  handleChange = (event) => {
-    console.log('change is', event.target.value);
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_GENRES'
+    })  
   }
+  handleChangeFor = (event, param) => {
+    this.setState({
+      newMovie: {
+        ...this.state.newMovie,
+        [param]: event.target.value
+      }
+    })
+  }
+
+  //need to get a list of genres from /api/genre to redux store to populate the genre dropdown. 
 
   addMovie = () => {
     console.log('Adding Movie', this.state);
+
   }
 
 
   render() {
     return(
       <div>
-        <input placeholder="title" type="text" onChange={this.handleChange}/>
+        <input placeholder="title" type="text" onChange={(event)=>this.handleChangeFor(event, 'title')}/>
+        <input placeholder="posterURL" type="text" onChange={(event)=>this.handleChangeFor(event, 'poster')}/>
+        <input placeholder="description" type="text" onChange={(event)=>this.handleChangeFor(event, 'description')}/>
+        <select onChange={(event) => this.handleChangeFor(event, 'genre')}>
+          {this.props.reduxState.genres[0] && this.props.reduxState.genres.map((genre) => {
+           return(
+            <option key={genre.id} value={genre.name}>{genre.name}</option>
+           ) 
+          })}
+          
+        </select>
         <button onClick={this.addMovie}>Submit</button>
       </div>
       
