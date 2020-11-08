@@ -15,6 +15,8 @@ router.get('/', (req, res) => {
 
 //get all movies matching params id set by click event on home.js page from DB
 router.get('/:id', (req, res) => {
+  console.log('THE MOVIE ID IS', Number(req.params.id));
+  
   const queryText = `SELECT "movies"."id", "title", "poster", "description", "genres"."name"
   FROM "movies" 
   JOIN "movies_genres" on "movies_genres"."movies_id" = "movies"."id"
@@ -29,7 +31,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
+  console.log('post',req.body);
   // RETURNING "id" will give us back the id of the created movie
   const insertMovieQuery = `
   INSERT INTO "movies" ("title", "poster", "description")

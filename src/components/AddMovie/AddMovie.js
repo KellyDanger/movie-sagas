@@ -7,7 +7,7 @@ class AddMovie extends Component {
       title: '',
       poster: '',
       description: '',
-      genre: ''
+      genre_id: 0,
     }
   }
   componentDidMount = () => {
@@ -17,7 +17,7 @@ class AddMovie extends Component {
   }
 
   handleChangeFor = (event, param) => {
-    this.setState({
+      this.setState({
       newMovie: {
         ...this.state.newMovie,
         [param]: event.target.value
@@ -45,10 +45,10 @@ class AddMovie extends Component {
         <input placeholder="title" type="text" onChange={(event)=>this.handleChangeFor(event, 'title')}/>
         <input placeholder="posterURL" type="text" onChange={(event)=>this.handleChangeFor(event, 'poster')}/>
         <input placeholder="description" type="text" onChange={(event)=>this.handleChangeFor(event, 'description')}/>
-        <select onChange={(event) => this.handleChangeFor(event, 'genre')}>
+        <select onChange={(event) => this.handleChangeFor(event, 'genre_id')}>
           {this.props.reduxState.genres[0] && this.props.reduxState.genres.map((genre) => {
            return(
-            <option key={genre.id} value={genre.name}>{genre.name}</option>
+            <option key={genre.id} value={genre.id}>{genre.name}</option>
            ) 
           })}
           
