@@ -6,14 +6,14 @@ class Home extends Component {
   componentDidMount = () => {
     this.listMovies();
   }
-
+//dispatch fetch movies request to redux, triggering fetchMovies Saga, sending axios request to movieRouter and receiving back all movies from the DB
   listMovies = () => {
     console.log('These are the movies');
     this.props.dispatch({
       type: 'FETCH_MOVIES'
     }) 
   }
-
+//send an action to the rootSaga to fire off the fetch details saga with a payload of the movie ID
   handleClick = (event) => {
     console.log('clicked', event.target.id);
     this.props.dispatch({
@@ -25,6 +25,7 @@ class Home extends Component {
 
   render() {
     return(
+      //consumes MovieItem to display it on the DOM
       <div id="posterContainer" onClick={this.handleClick}>
         {this.props.reduxState.movies.map((movie) => {
         return <MovieItem key={movie.title} poster={movie.poster} title={movie.title} id={movie.id}/>

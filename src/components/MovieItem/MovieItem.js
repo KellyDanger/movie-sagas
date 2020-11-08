@@ -6,6 +6,7 @@ class MovieItem extends Component {
 
   render(){
     return(
+      //Movie to be listed on dom
       <div>
         <img src={this.props.poster} alt={this.props.title} id={this.props.id}/>
         <h2>{this.props.title}</h2>

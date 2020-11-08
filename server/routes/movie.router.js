@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+//get all movies from the DB send results to movies reducer state 
 router.get('/', (req, res) => {
   const queryText = `SELECT * FROM "movies";`
   pool.query(queryText).then((result) => {
@@ -12,6 +13,7 @@ router.get('/', (req, res) => {
   })
 });
 
+//get all movies matching params id set by click event on home.js page from DB
 router.get('/:id', (req, res) => {
   const queryText = `SELECT "movies"."id", "title", "poster", "description", "genres"."name"
   FROM "movies" 

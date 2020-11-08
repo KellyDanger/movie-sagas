@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 
 class Details extends Component {
+  //navigates back to home page
   handleClick = () => {
     this.props.history.push('/');
   }
@@ -10,6 +11,7 @@ class Details extends Component {
   render() {
     
     return(
+      //display all details of the selected movie on the DOM
       <div>
       {this.props.reduxState.details[0] && 
       <>
@@ -18,6 +20,7 @@ class Details extends Component {
       <h3>{this.props.reduxState.details[0].description}</h3>
       </>
       }
+      {/* display each genre assigned to this movie in the DB */}
       {this.props.reduxState.details.map((movie) => {
         return <p key={movie.name}>{movie.name}</p>
       })}

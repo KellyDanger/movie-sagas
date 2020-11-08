@@ -29,6 +29,8 @@ function* fetchMovies() {
         
     }
 }
+//send axios request to movierouter with the movie's id as a payload
+//set the details router state to the data retrieved from the DB via movierouter
 function* fetchDetails(action){
     try{
         const detailsResponse = yield axios.get(`/api/movie/${action.payload}`)
