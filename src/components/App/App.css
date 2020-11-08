@@ -30,13 +30,42 @@ h2 {
   margin-top: 5px;
   margin-bottom: 30px;
 }
+
+.backBtn {
+  margin-bottom: 150px;
+}
+ul {
+  list-style-type: none;
+  padding: 10px;
+}
+li  {
+  display: inline;
+  background-color: white;
+  border: 1px solid white;
+  margin: 5px;
+  border-radius: 3px;
+}
+a {
+  text-decoration: none;
+  color: black;
+  padding: 30px;
+}
 .moviePoster {
   height: 250px;
-  border: 1px solid white;
-  
+  border: 2px solid white;
 }
-.backBtn {
-  margin-bottom: 100px;
+input, select {
+  padding: 10px;
+  margin: 5px;
+  display: block;
+  width: 20%;
+  margin-left: 40%;
+}
+button {
+  font-size: 16px;
+  margin: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 

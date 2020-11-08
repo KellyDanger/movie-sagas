@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieItem from '../MovieItem/MovieItem';
 
+
 class Home extends Component {
   componentDidMount = () => {
     this.listMovies();
@@ -26,7 +27,7 @@ class Home extends Component {
   render() {
     return(
       //consumes MovieItem to display it on the DOM
-      <div id="posterContainer" onClick={this.handleClick}>
+      <div className="posterContainer" onClick={this.handleClick}>
         {this.props.reduxState.movies.map((movie) => {
         return <MovieItem key={movie.id} poster={movie.poster} title={movie.title} id={movie.id}/>
       })}
